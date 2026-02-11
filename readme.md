@@ -15,20 +15,20 @@
     ```
 3. **Setup MailService**
 
-For a fast setup all files with database passwords and etc are pushed here, but to make MailService work You should insert your email credentials into **appsettings.Docker.json** (or **appsettings.Development.json** if You start locally)
+    For a fast setup all files with database passwords and etc are pushed here, but to make MailService work You should insert your email credentials into **appsettings.Docker.json** (or **appsettings.Development.json** if You start locally)
 
-**EmailSettings** section should look like
+    **EmailSettings** section should look like
 
-    "EmailSettings": {
-        "FromName": "InnoShop",
-        "FromEmail": "hello@yandex.ru",
-        "ToName": "Recipient",
-        "ClientHost": "smtp.yandex.ru",
-        "ClientPort": 465,
-        "ClientLogin": "hello@yandex.ru",
-        "ClientPassword": "qwerty123",
-        "UseSsl": true
-    }
+        "EmailSettings": {
+            "FromName": "InnoShop",
+            "FromEmail": "hello@yandex.ru",
+            "ToName": "Recipient",
+            "ClientHost": "smtp.yandex.ru",
+            "ClientPort": 465,
+            "ClientLogin": "hello@yandex.ru",
+            "ClientPassword": "qwerty123",
+            "UseSsl": true
+        }
 
 4. **Build and run**
 
@@ -46,6 +46,16 @@ For a fast setup all files with database passwords and etc are pushed here, but 
 5. **Acess Next.js Frontend**
 
     Open [localhost:3000](http://localhost:3000)
+
+(6). **Default Roles and User**
+
+    If You run app in Development or Docker environment it automatically creates an admin-user with credentials being:
+
+    "Email": admin@admin.com
+    "Password": admin123
+
+        and two default roles: "Regular" and "Admin"
+
 
 ## Functionality
 
