@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ProductService.Application\ProductService.Application.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MassTransit.RabbitMQ" Version="8.0.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.9" />
+      <PackageReference Include="SharedResources.MessageContracts" Version="1.0.0" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,47 @@
+.header {
+  height: 60px;
+  padding-left: var(--mantine-spacing-md);
+  padding-right: var(--mantine-spacing-md);
+  border-bottom: 1px solid var(--mantine-color-gray-3);
+}
+
+.tabLink {
+  display: block;
+  line-height: 1;
+  padding: 8px 12px;
+  border-radius: var(--mantine-radius-sm);
+  text-decoration: none;
+  color: var(--mantine-color-gray-7), var(--mantine-color-dark-0);
+  font-size: var(--mantine-font-size-sm);
+  font-weight: 500;
+}
+
+.tabLink:hover {
+  background-color: var(--mantine-color-gray-0), var(--mantine-color-dark-6);
+}
+
+[data-mantine-color-scheme] .tabLink[data-active] {
+  background-color: var(--mantine-color-blue-filled);
+  color: var(--mantine-color-white);
+}
+
+
+
+.tabLink:hover {
+  background-color: var(--mantine-color-dark-6);
+}
+
+.subLink {
+  width: 100%;
+  padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
+  border-radius: var(--mantine-radius-md);
+  transition: 0.2s;
+}
+
+.subLink:hover {
+  background-color: var(--mantine-color-dark-7);
+}
+
+.adminCaption {
+  font-weight: 500;
+}

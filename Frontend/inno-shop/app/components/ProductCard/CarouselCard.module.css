@@ -1,0 +1,46 @@
+.price {
+  color: var(--mantine-color-bright);
+}
+
+.carousel {
+  &:hover {
+    .carouselControls {
+      opacity: 1;
+    }
+  }
+}
+
+.carouselControls {
+  transition: opacity 150ms ease;
+  opacity: 0;
+}
+
+.carouselIndicator {
+  width: 4px;
+  height: 4px;
+  transition: width 250ms ease;
+
+  &[data-active] {
+    width: 16px;
+  }
+}
+
+.title {
+  line-height: 1.2;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.description {
+  display: -webkit-box;
+  word-break: break-word;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}

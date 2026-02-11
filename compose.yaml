@@ -1,0 +1,119 @@
+﻿services:
+  userservice.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_URLS=http://+:8080
+    container_name: userservice.api
+    image: userservice.api:1.0.0
+    build:
+      context: .
+      dockerfile: UserService/Dockerfile
+    ports:
+      - "5085:8080"
+    depends_on:
+      - postgres.users.db
+      - rabbitmq
+
+  productservice.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_URLS=http://+:8080
+    container_name: productservice.api
+    image: productservice.api:1.0.0
+    build:
+      context: .
+      dockerfile: ProductService/Dockerfile
+    ports:
+      - "5186:8080"
+    depends_on:
+      - postgres.products.db
+      - rabbitmq
+    volumes:
+    - uploads-data:/app/wwwroot/uploads
+
+  mailservice.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_URLS=http://+:8080
+    container_name: mailservice.api
+    image: mailservice.api:1.0.0
+    build:
+      context: .
+      dockerfile: MailService/Dockerfile
+    ports:
+      - "5027:8080"
+    depends_on:
+      - rabbitmq
+
+  gateway.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_URLS=http://+:8080
+    container_name: gateway.api
+    image: gateway.api:1.0.0
+    build:
+      context: ./ApiGateway
+      dockerfile: Dockerfile
+    ports:
+      - "5266:8080"
+    depends_on:
+      - userservice.api
+      - productservice.api
+      - mailservice.api
+        
+  postgres.users.db:
+    container_name: postgres.users.db
+    image: postgres:18.1-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${USERS_DB_NAME}
+    volumes:
+      - users-db-data:/var/lib/postgresql
+    ports:
+      - "5454:5432"
+  
+  postgres.products.db:
+    container_name: postgres.products.db
+    image: postgres:18.1-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${PRODUCTS_DB_NAME}
+    volumes:
+      - products-db-data:/var/lib/postgresql
+    ports:
+      - "5455:5432"
+  
+  innoshop.client:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    image: innoshop.client:1.0.0
+    container_name: innoshop.client
+    ports:
+      - "3000:3000"
+    depends_on:
+      - userservice.api
+      - productservice.api
+      - mailservice.api
+
+  rabbitmq:
+    image: rabbitmq:management-alpine
+    container_name: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+    ports:
+      - "5672:5672"       
+      - "15672:15672"   
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+
+
+volumes:
+  users-db-data:
+  products-db-data:
+  rabbitmq-data:
+  uploads-data:
+

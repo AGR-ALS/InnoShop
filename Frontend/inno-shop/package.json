@@ -1,0 +1,44 @@
+{
+  "name": "inno-shop",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^6.1.0",
+    "@mantine/carousel": "^8.3.14",
+    "@mantine/core": "^8.3.14",
+    "@mantine/dropzone": "^8.3.14",
+    "@mantine/form": "^8.3.14",
+    "@mantine/hooks": "^8.3.14",
+    "@mantine/modals": "^8.3.14",
+    "@mantinex/dev-icons": "^2.0.0",
+    "@tabler/icons-react": "^3.36.1",
+    "antd": "^6.2.3",
+    "embla-carousel": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
+    "js-cookie": "^3.0.5",
+    "next": "16.1.6",
+    "react": "19.2.3",
+    "react-dom": "19.2.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/js-cookie": "^3.0.6",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.6",
+    "postcss": "^8.5.6",
+    "postcss-preset-mantine": "^1.18.0",
+    "postcss-simple-vars": "^7.0.1",
+    "sass": "^1.97.3",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
