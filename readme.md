@@ -14,9 +14,11 @@
 
     ```
 3. **Setup MailService**
+
 For a fast setup all files with database passwords and etc are pushed here, but to make MailService work You should insert your email credentials into **appsettings.Docker.json** (or **appsettings.Development.json** if You start locally)
+
 **EmailSettings** section should look like
-    ```
+
     "EmailSettings": {
         "FromName": "InnoShop",
         "FromEmail": "hello@yandex.ru",
@@ -27,7 +29,7 @@ For a fast setup all files with database passwords and etc are pushed here, but 
         "ClientPassword": "qwerty123",
         "UseSsl": true
     }
-    ```
+
 4. **Build and run**
 
     ```cmd
@@ -104,7 +106,8 @@ Main chracteristics:
 
 
 The frontend application is responsible for user interaction and UI rendering.
-<small>Its does not implement full functionality of backend API so for full capabilities of the system better adress SwaggerUI with all endpoints. </small>
+
+<sup> It does not implement full functionality of backend API so for full capabilities of the system better adress SwaggerUI with all endpoints. </sup>
 
 Technologies used:
 
